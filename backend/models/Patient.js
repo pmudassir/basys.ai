@@ -1,31 +1,27 @@
 import mongoose, { Schema } from "mongoose";
 
 const medicalHistorySchema = new Schema({
-  date: { type: Date, required: true },
-  treatment: { type: String, required: true },
-  doctor: { type: String, required: true },
-  notes: { type: String, required: false }
+  treatment: { type: String },
+  doctor: { type: String },
+  notes: { type: String }
 });
 
 const medicationHistorySchema = new Schema({
-  medication: { type: String, required: true },
-  startDate: { type: Date, required: true },
-  endDate: { type: Date, required: false },
-  dosage: { type: String, required: true }
+  medication: { type: String },
+  dosage: { type: String }
 });
 
 const labResultSchema = new Schema({
-  date: { type: Date, required: true },
-  test: { type: String, required: true },
-  result: { type: String, required: true },
-  doctor: { type: String, required: true }
+  date: { type: Date },
+  test: { type: String },
+  result: { type: String },
 });
 
 const treatmentPlanSchema = new Schema({
-  treatmentType: { type: String, required: true },
-  doctor: { type: String, required: true },
-  startDate: { type: Date, required: true },
-  status: { type: String, enum: ['Ongoing', 'Completed', 'Discontinued'], required: true }
+  treatmentType: { type: String },
+  doctor: { type: String },
+  startDate: { type: Date },
+  status: { type: String, enum: ['Ongoing', 'Completed', 'Discontinued'] }
 });
 
 const patientSchema = new Schema({

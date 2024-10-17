@@ -7,7 +7,7 @@ function App() {
   return (
     <Routes>
       <Route path="/" element={<Dashboard />} />
-      <Route path="/:id" element={<Patient />} />
+      <Route path="/patient/:id" element={<Patient />} />
     </Routes>
   )
 }

@@ -1,11 +1,14 @@
-import { columns } from "@/components/columns"
 import { DataTable } from "@/components/data-table"
 import axios from "axios"
 import { useEffect, useState } from "react"
 import { baseUrl } from "@/baseUrl"
+import { useNavigate } from "react-router-dom"
+import { getColumns } from "@/components/columns"
+
 
 const Dashboard = () => {
   const [data, setData] = useState('')
+  const navigate = useNavigate()
 
   useEffect(() => {
     getPatients()
@@ -35,7 +38,7 @@ const Dashboard = () => {
             Hello
           </div>
         </div>
-        <DataTable columns={columns} data={data} refreshPatient={getPatients} />
+        <DataTable columns={getColumns(navigate)} data={data} refreshPatient={getPatients} />
       </div>
     </>
   )

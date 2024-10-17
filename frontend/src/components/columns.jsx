@@ -3,14 +3,13 @@ import {
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuLabel,
-  DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
 import { MoreHorizontal } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { ArrowUpDown } from "lucide-react"
 
-export const columns = [
+export const getColumns = (navigate) => [
   {
     accessorKey: "name",
     // header: "Name",
@@ -58,6 +57,10 @@ export const columns = [
     cell: ({ row }) => {
       const patient = row.original
 
+      const handleViewPatient = () => {
+        navigate(`/patient/${patient._id}`)
+      }
+
       return (
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
@@ -68,14 +71,7 @@ export const columns = [
           </DropdownMenuTrigger>
           <DropdownMenuContent align="end">
             <DropdownMenuLabel>Actions</DropdownMenuLabel>
-            <DropdownMenuItem
-              onClick={() => console.log(patient._id)}
-            >
-              Copy {patient.id} ID
-            </DropdownMenuItem>
-            <DropdownMenuSeparator />
-            <DropdownMenuItem>View customer</DropdownMenuItem>
-            <DropdownMenuItem>View payment details</DropdownMenuItem>
+            <DropdownMenuItem onClick={handleViewPatient}>View Patient</DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
       )

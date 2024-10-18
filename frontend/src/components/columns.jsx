@@ -12,7 +12,6 @@ import { ArrowUpDown } from "lucide-react"
 export const getColumns = (navigate) => [
   {
     accessorKey: "name",
-    // header: "Name",
     header: ({ column }) => {
       return (
         <Button
@@ -27,7 +26,6 @@ export const getColumns = (navigate) => [
   },
   {
     accessorKey: "age",
-    // header: "Age",
     header: ({ column }) => {
       return (
         <Button
@@ -45,7 +43,7 @@ export const getColumns = (navigate) => [
     header: "Condition",
   },
   {
-    accessorKey: "treatmentPlan.treatmentType",  // Access nested object property
+    accessorKey: "treatmentPlan.treatmentType",
     header: "Treatment Plan",
   },
   {

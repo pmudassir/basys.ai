@@ -1,6 +1,7 @@
 import { Route, Routes } from "react-router-dom"
 import Dashboard from "./pages/Dashboard"
 import Patient from "./pages/Patient"
+import ViewRequests from "./pages/ViewRequests"
 
 function App() {
 
@@ -8,6 +9,7 @@ function App() {
     <Routes>
       <Route path="/" element={<Dashboard />} />
       <Route path="/patient/:id" element={<Patient />} />
+      <Route path="/prior-requests" element={<ViewRequests />} />
     </Routes>
   )
 }

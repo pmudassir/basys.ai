@@ -14,6 +14,7 @@ import {
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
+import AuthRequest from "@/components/auth-request"
 
 const Patient = () => {
   const [data, setData] = useState({
@@ -30,6 +31,7 @@ const Patient = () => {
       status: "Ongoing"
     }
   })
+  const [isModalOpen, setIsModalOpen] = useState(false)
 
   const navigate = useNavigate()
   const { id } = useParams()
@@ -91,7 +93,10 @@ const Patient = () => {
           <CardDescription>You can view and update patient details here.</CardDescription>
         </CardHeader>
         <CardContent>
-          <Button>Request Authorization</Button>
+          <AuthRequest open={isModalOpen} setOpen={setIsModalOpen} patientId={id} />
+          <Button onClick={() => setIsModalOpen(true)}>
+            Request Authorization
+          </Button>
           <form>
             <div className="grid w-full mt-5 items-center gap-4">
               {/* Basic Info */}

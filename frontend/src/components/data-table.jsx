@@ -19,12 +19,15 @@ import { Input } from "./ui/input"
 import { useState } from "react"
 import { Plus } from "lucide-react"
 import PatientModal from "./patient-modal"
+import { useNavigate } from "react-router-dom"
 
 // eslint-disable-next-line react/prop-types
 export function DataTable({ columns, data, refreshPatient }) {
   const [sorting, setSorting] = useState([])
   const [columnFilters, setColumnFilters] = useState([])
   const [modalOpen, setModalOpen] = useState(false)
+
+  const navigate = useNavigate()
 
   const table = useReactTable({
     data,
@@ -53,9 +56,14 @@ export function DataTable({ columns, data, refreshPatient }) {
           }
           className="max-w-sm"
         />
-        <Button onClick={() => setModalOpen(true)}>
-          <Plus />Add Patient
-        </Button>
+        <div className="flex items-center space-x-2">
+          <Button onClick={() => setModalOpen(true)}>
+            <Plus />Add Patient
+          </Button>
+          <Button variant="outline" onClick={() => navigate("/prior-requests")}>
+            View Prior Requests
+          </Button>
+        </div>
       </div>
       <div className="rounded-md border">
         <Table>
